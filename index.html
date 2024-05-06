@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>fake web</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div align="right">
+        <label><input type="radio" checked="checked">繁體中文</label>
+        <label><input type="radio">English</label>
+        <label><input type="radio">日本語</label>
+    </div>
+
+    <img src="images/banner.jpg" style="width: 100%">
+    <div class="navbar">
+        <a href="/home">首頁</a>
+        <a href="/about">關於我們</a>
+        <a href="/services">服務項目</a>
+        <a href="/contact">聯絡我們</a>
+        <a href="/faq">常見問題</a>
+    </div>
+    <div class="form-container">
+        <form>
+            <table>
+                <tr>
+                    <td colspan="2" class="header">查詢條件：基本資料(身份證號及運籌領域分必須填寫)</td>
+                </tr>
+                <tr>
+                    <td class="left-column">
+                        <div class="form-group">
+                            <label for="idNumber">身份證號：</label>
+                            <input type="text" id="idNumber" name="idNumber">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">姓名：</label>
+                            <input type="text" id="name" name="name">
+                        </div>
+                    </td>
+                    <td class="right-column">
+                        <div class="form-group">
+                            <label for="address">聯絡電話：</label>
+                            <input type="text" id="address" name="address">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">電子郵件：</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <button type="submit">下一步</button>
+                        </div>
+                    </td>
+                    <td colspan="3">
+                        <span style="color:Red;font-size:Small;">請正確填寫，[身分證號]與[聯絡電話]，此欄位為[訂票記錄查詢]、[取消訂票]之必要條件</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <img src="images/buttom.png" style="width: 100%">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function (event) {
+                const idNumber = document.getElementById('idNumber').value.trim();
+                const name = document.getElementById('name').value.trim();
+
+                if (!idNumber || !name) {
+                    alert('請正確填寫姓名和身份證號，這些為必填項目。');
+                    event.preventDefault(); // 阻止表單提交
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
